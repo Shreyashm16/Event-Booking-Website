@@ -15,10 +15,7 @@ jobs:
            node-version: "14.x"
        - name: Install dependencies
          working-directory: ./backend
-         run: npm install
-       - name: Install mocha
-         working-directory: ./backend
-         run: npm install -g mocha chai
+         run: npm install -g
        - name: Run Test
          working-directory: ./backend
          run: node test
