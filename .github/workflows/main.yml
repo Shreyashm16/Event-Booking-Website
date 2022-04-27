@@ -14,6 +14,7 @@ name: Main
          with: 
            node-version: "14.x"
        - name: Install dependencies
+         working-directory: ./backend
          run: npm install
        - name: Run Test
          working-directory: ./backend
