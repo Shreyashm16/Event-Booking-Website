@@ -17,4 +17,5 @@ jobs:
          working-directory: ./backend
          run: npm install -g
        - name: Run Test
-         run: node ./backend/test
+         working-directory: ./backend
+         run: npm test
