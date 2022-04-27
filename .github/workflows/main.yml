@@ -14,6 +14,7 @@ jobs:
          with: 
            node-version: "14.x"
        - name: Install dependencies
+         working-directory: ./backend
          run: npm install -g
        - name: Run Test
          run: node ./backend/test
