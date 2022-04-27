@@ -1,32 +1,23 @@
-name: CI
+name: Main
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    name: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    - name: Install Node.js, NPM and Yarn
-      uses: actions/setup-node@v1
-      with:
-          node-version: 16
-    - name: Install dependencies
-      working-directory: ./backend
-      run: |
-         npm install
-    - name: Install dependencies
-      run: |
-         npm install chai 
-         npm install mocha 
-         npm install chai-http
-    - name: Run Test
-      working-directory: ./backend
-      run: |
-         node test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with: 
+          node-version: "14.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Install mocha
+        working-directory: ./backend
+        run: npm install -g mocha chai chai-http
+      - name: Run Test
+        working-directory: ./backend
+        run: npm test
