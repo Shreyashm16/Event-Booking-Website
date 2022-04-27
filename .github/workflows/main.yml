@@ -20,7 +20,12 @@ jobs:
     - name: Install dependencies
       working-directory: ./backend
       run: |
-         npm install -g
+         npm install
+    - name: Install dependencies
+      run: |
+         npm install chai 
+         npm install mocha 
+         npm install chai-http
     - name: Run Test
       working-directory: ./backend
       run: |
