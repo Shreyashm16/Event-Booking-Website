@@ -21,4 +21,4 @@ jobs:
          run: npm install -g mocha chai
        - name: Run Test
          working-directory: ./backend
-         run: npm test.js
+         run: node test
