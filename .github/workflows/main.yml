@@ -1,21 +1,24 @@
 name: Main
- on:
+on:
    push:
      branches: [ main ]
    workflow_dispatch:
- jobs:
+jobs:
    build:
      runs-on: ubuntu-latest
 
      steps:
-       - uses: actions/checkout@v2
+       - uses: actions/checkout@v3
        - name: Use Node.js
-         uses: actions/setup-node@v2
+         uses: actions/setup-node@v3
          with: 
            node-version: "14.x"
        - name: Install dependencies
          working-directory: ./backend
          run: npm install
+       - name: Install mocha
+         working-directory: ./backend
+         run: npm install -g mocha chai
        - name: Run Test
          working-directory: ./backend
          run: npm test.js
